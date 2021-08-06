@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 const basePath = __dirname;
 
@@ -46,9 +46,9 @@ module.exports = {
       filename: "index.html", //Name of file in ./dist/
       template: "index.html", //Name of template in ./src
     }),
-    new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css",
-    }),
+    // new MiniCssExtractPlugin({
+    //   filename: "[name].css",
+    //   chunkFilename: "[id].css",
+    // }),
   ],
 };
