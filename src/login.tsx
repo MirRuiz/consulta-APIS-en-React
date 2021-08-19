@@ -1,5 +1,9 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button"
+
+
 
 export const LoginPage: React.FC = () => {
   const history = useHistory();
@@ -9,7 +13,7 @@ export const LoginPage: React.FC = () => {
   const handleNavigation = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (username === "admin" && password === "test") {
-      history.push("/home-page"); 
+      history.push("/home-page");
     } else {
       alert("User / password not valid, psst... admin / test");
     }
@@ -17,26 +21,26 @@ export const LoginPage: React.FC = () => {
 
   return (
     <form onSubmit={handleNavigation}>
-      <h2>Hello from login page</h2>
+      <h2>Hello to the API page</h2>
       <div>
         <div>
-          <label>Username: </label>
-          <input
+          <TextField
+            required
+            label="Username: "
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
         <div>
-          <label>Password: </label>
-          <input
-            type="password"
+          <TextField
+            required
+            label="Password: "
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
+        <Button variant="outlined" type="submit">Login</Button>
       </div>
-
-      <button type="submit">login</button>
     </form>
   );
 };
