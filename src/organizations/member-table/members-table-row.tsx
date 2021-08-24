@@ -1,5 +1,5 @@
 import React from "react";
-import { MemberEntity } from "./list";
+import { MemberEntity } from "../list/list";
 import { Link, generatePath } from "react-router-dom";
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';

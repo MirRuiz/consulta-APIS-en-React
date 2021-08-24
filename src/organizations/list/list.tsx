@@ -1,10 +1,10 @@
 import React from "react";
-import { MemberTableRow } from "./members-table-row";
-import { MemberTable } from "./member-table";
+import { MemberTableRow } from "../member-table/members-table-row";
+import { MemberTable } from "../member-table/member-table";
 import Button from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField";
-import { OrganizationContext } from "./organization.context";
-// import "./list.css"
+import { OrganizationContext } from "../organization.context";
+import "./list.css";
 
 export interface MemberEntity {
   id: string;
@@ -15,8 +15,6 @@ export interface MemberEntity {
 export const ListPage: React.FC = () => {
   const [members, setMembers] = React.useState<MemberEntity[]>([]);
   const { organization, setOrganization } = React.useContext(OrganizationContext)
-
-  // const [organizationDebounce] = useDebounce(organization, 3000);
 
   const handleClick = () => {
     fetch(`https://api.github.com/orgs/${organization}/members`)
@@ -35,8 +33,8 @@ export const ListPage: React.FC = () => {
 
   return (
     <>
-      <div style={{ textAlign: "center", margin: "auto" }}>
-        <h2 >Página de búsqueda de organizaciones</h2>
+      <div >
+        <h2>Página de búsqueda de organizaciones</h2>
         <TextField
           label="Organization"
           id="outlined-size-small"
@@ -46,19 +44,25 @@ export const ListPage: React.FC = () => {
           size="small"
           onChange={(e) => setOrganization(e.target.value)}
           onKeyPress={(e) => handleEnter(e)}
-        />
-        <Button variant="outlined" color="primary" href="#outlined-buttons" onClick={handleClick} >
+          />
+        <Button className="input" variant="outlined" color="primary" href="#outlined-buttons" onClick={handleClick} >
+          
           Buscar
         </Button>
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <div>
         <MemberTable>
           {members.length > 0 ?
             members.map((member) => (
               <MemberTableRow key={member.id} member={member} />
             )) : <tr><td>{organization} no existe o no tiene resultado</td></tr>}
         </MemberTable>
+      </div>
+      <div>
+        <Button variant="outlined" color="primary" href="http://localhost:8080/home-page"  >
+          Volver a la página de selección de API
+        </Button>
       </div>
     </>
   )

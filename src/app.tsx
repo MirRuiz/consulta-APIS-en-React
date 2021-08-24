@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { LoginPage } from "./login";
-import { ListPage } from "./organizations.tsx/list";
-import { DetailPage } from "./organizations.tsx/detail";
-import { OrganizationProvider } from "./organizations.tsx/organization.context";
-import { ListRickMorty } from "./rick-morty.tsx/list-rickymorty";
-import { HomePage } from "./home.tsx/home-page";
+import { ListPage } from "./organizations/list/list";
+import { DetailPage } from "./organizations/details/detail";
+import { OrganizationProvider } from "./organizations/organization.context";
+import { ListRickMorty } from "./rick-morty/list-rickymorty";
+import { HomePage } from "./home-page/home-page";
 
 export const App = () => {
   return (

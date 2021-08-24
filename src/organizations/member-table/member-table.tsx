@@ -1,12 +1,13 @@
 import React from "react";
 
 
+
 export const MemberTable: React.FC = (props) =>{
     const {children } = props;
 
     return(
         <>
-         <table className="table">
+         <table>
         <thead>
           <tr>
             <th>Avatar</th>

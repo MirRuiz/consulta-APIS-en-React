@@ -5,11 +5,11 @@ export const DetailPageRickMorty: React.FC = () => {
     const { id } = useParams();
 
     
-    React.useEffect(() =>{
-        // fetch(`https://rickandmortyapi.com/api/character/1`)
-        // .then((response) =>  console.log(response))
-console.log("ptt")
-    }, [])
+    // React.useEffect(() =>{
+    //     // fetch(`https://rickandmortyapi.com/api/character/1`)
+    //     // .then((response) =>  console.log(response))
+
+    // }, [])
    
     return (
         <>
